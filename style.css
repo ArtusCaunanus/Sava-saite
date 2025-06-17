@@ -1,111 +1,96 @@
-/* ======= Krāsu mainīgie ======= */
 :root {
-  --background: #ffffff; /* Noklusētā fona krāsa (gaišā tēma) */
-  --text: #000000;        /* Noklusētais teksta krāsa (gaišā tēma) */
+  --background: #ffffff;
+  --text: #000000;
 }
 
-/* ======= Pamata lapas stils ======= */
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif; /* Fontu ģimene */
-  background-color: var(--background); /* Fons no mainīgā */
-  color: var(--text); /* Teksta krāsa no mainīgā */
+  font-family: Arial, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Pilns augstums - lai kājene ir apakšā */
+  min-height: 100vh;
 }
 
-/* ======= Galvene un kājene ======= */
 header,
 footer {
-  width: 100%; /* Aizņem visu platumu */
-  background: linear-gradient(135deg, #667eea, #764ba2); /* Fona gradients */
+  width: 100%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
-  padding: 2rem 0; /* Vertikālā atstarpe */
+  padding: 2rem 1rem;
   text-align: center;
+}
 
-  /* Flex centrēšana horizontāli un vertikāli */
+main {
+  flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding: 20px;
 }
 
-/* ======= Saturam paredzēts konteiners ======= */
 .container {
-  max-width: 1000px; /* Maksimālais platums */
+  max-width: 1000px;
   width: 100%;
-  margin: 0 auto; /* Centrēšana horizontāli */
+  margin: 0 auto;
   box-sizing: border-box;
-  padding: 0 20px; /* Horizontāla iekšējā atstarpe */
 }
 
-/* ======= Tumšā tēma ======= */
 body.dark {
-  background-color: #121212; /* Tumšs fons visai lapai */
-  color: #ffffff; /* Gaišs teksts */
+  background-color: #121212;
+  color: #ffffff;
 }
-
 body.dark section {
-  background-color: #1e1e1e; /* Tumšāks fons sekcijām */
+  background-color: #1e1e1e;
 }
 
-/* ======= Navigācijas saites ======= */
 nav a {
-  margin: 0 10px; /* Atstatums starp saitēm */
+  margin: 0 10px;
   color: white;
-  text-decoration: none; /* Bez pasvītrojuma */
+  text-decoration: none;
 }
 
-/* ======= Tumšās tēmas un valodas kontroles elementi ======= */
 .controls {
   margin-top: 10px;
-  /* Tiek izmantots @media vaicājumā, lai izkārtotu vertikāli uz mazākiem ekrāniem */
 }
 
-/* ======= Sekciju noformējums ======= */
 section {
-  background-color: #f5f5f5; /* Gaišs fons sekcijām */
+  background-color: #f5f5f5;
   padding: 20px;
-  margin: 20px 0; /* Vertikāla atstarpe starp sekcijām */
-  border-radius: 12px; /* Noapaļoti stūri */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Viegls ēnojums */
+  margin: 20px 0;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   text-align: center;
 }
 
-/* ======= Ikonas saitēm (GitHub, Instagram) ======= */
 #saites a i {
-  color: #444; /* Tumši pelēka ikonu krāsa */
-  transition: transform 0.2s, color 0.3s; /* Gluda pāreja uz hover */
+  color: #444;
+  transition: transform 0.2s, color 0.3s;
   margin: 0 10px;
 }
-
 #saites a:hover i {
-  transform: scale(1.2); /* Palielinājums uz hover */
-  color: #764ba2; /* Violetīga krāsa uz hover */
+  transform: scale(1.2);
+  color: #764ba2;
 }
 
-/* ======= Daudzvalodu satura pārvaldība ======= */
 .lang {
-  transition: opacity 0.3s ease; /* Gluda parādīšanās/pazūšana */
-  display: none; /* Sākumā neredzams */
+  transition: opacity 0.3s ease;
+  display: none;
 }
-
 .lang.active {
-  display: block; /* Tiek parādīts tikai aktīvais valodas bloks */
+  display: block;
   opacity: 1;
 }
 
-/* ======= Responsīvais dizains (mazie ekrāni) ======= */
 @media (max-width: 600px) {
   nav a {
-    display: block; /* Saites viena zem otras */
+    display: block;
     margin: 5px 0;
   }
-
   .controls {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrē pogas un select */
+    align-items: center;
   }
 }
