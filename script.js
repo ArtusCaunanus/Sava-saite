@@ -1,36 +1,38 @@
-// Autortiesību gads
+// ======== Autortiesību gada iestatīšana kājenē ========
 document.getElementById("gads").textContent = new Date().getFullYear();
+// Paņem pašreizējo gadu un ievieto elementā ar id "gads"
 
-// Skatījumu skaitītājs
-let skaits = localStorage.getItem("skaititajs") || 0;
-skaits++;
-localStorage.setItem("skaititajs", skaits);
-document.getElementById("skaititajs").textContent = skaits;
+// ======== Skatījumu skaitītājs, kas glabājas lokāli pārlūkā ========
+let skaits = localStorage.getItem("skaititajs") || 0; // Paņem iepriekšējo vērtību vai 0
+skaits++; // Palielina skaitītāju par 1
+localStorage.setItem("skaititajs", skaits); // Saglabā jauno vērtību localStorage
+document.getElementById("skaititajs").textContent = skaits; // Atjaunina skatījumu skaitu lapā
 
-// Tumšā/gaišā tēma
+// ======== Tēmas (tumšā/gaišā) pārslēgšana ========
 function toggleTheme() {
   document.body.classList.toggle("dark");
+  // Pārslēdz klasi "dark" uz <body>, kas maina tēmu CSS failā
 }
 
-// Valodas maiņa ar saglabāšanu
+// ======== Valodas maiņa un saglabāšana pārlūkā ========
 function changeLanguage(lang) {
-  // Saglabā valodu localStorage
+  // Saglabā izvēlēto valodu localStorage
   localStorage.setItem("valoda", lang);
 
-  // Parāda tikai aktīvo valodas bloku
+  // Paslēpj visus valodu blokus (.lang) un parāda tikai izvēlēto
   document.querySelectorAll('.lang').forEach(el => el.classList.remove('active'));
   const activeLang = document.querySelector(`.lang.${lang}`);
   if (activeLang) activeLang.classList.add('active');
 
-  // Nomaina visus tekstus ar data-lv / data-en atribūtiem
+  // Atrod visus elementus ar data-lv / data-en atribūtiem un maina to tekstu
   document.querySelectorAll('[data-lv], [data-en]').forEach(el => {
-    const translation = el.getAttribute(`data-${lang}`);
-    if (translation) el.textContent = translation;
+    const translation = el.getAttribute(`data-${lang}`); // Paņem attiecīgās valodas tekstu
+    if (translation) el.textContent = translation; // Iestata tekstu
   });
 }
 
-// Ielādē valodu pēc lapas ielādes
+// ======== Ielādē saglabāto valodu, kad lapa tiek atvērta ========
 window.addEventListener("DOMContentLoaded", () => {
-  const lang = localStorage.getItem("valoda") || "lv";
-  changeLanguage(lang);
+  const lang = localStorage.getItem("valoda") || "lv"; // Ja nav saglabāts, pēc noklusējuma "lv"
+  changeLanguage(lang); // Piemēro valodu lapā
 });
