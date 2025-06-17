@@ -5,52 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arta Čaunāna nepilnā biogrāfija</title>
 
-    <!-- Saite uz ārējo CSS stilu failu -->
+    <!-- Optimizēts Font Awesome ielāde -->
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet';"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      />
+    </noscript>
+
+    <!-- CSS stili -->
     <link rel="stylesheet" href="style.css" />
 
-    <!-- Saite uz JavaScript failu (ielādējas pēc lapas satura) -->
+    <!-- JavaScript defer, lai netraucē ielādei -->
     <script src="script.js" defer></script>
 
-    <!-- Font Awesome bibliotēka ikonām -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
-    <!-- Google Analytics spraudnis skatījumu izsekošanai -->
+    <!-- Google Analytics (ielāde asinhroni) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXX');
+      gtag("js", new Date());
+      gtag("config", "G-XXXXXXX");
     </script>
   </head>
 
   <body>
-    <!-- Galvene ar virsrakstu, navigāciju un vadības pogām -->
     <header>
       <div class="container">
-        <!-- Galvenais virsraksts ar valodas datiem -->
         <h1 data-lv="Arta Čaunāna nepilnā biogrāfija" data-en="Artis Čaunans's unfinished Page">
           Arta Čaunāna nepilnā biogrāfija
         </h1>
-
-        <!-- Navigācijas izvēlne ar saitēm uz lapas sekcijām -->
         <nav>
           <a href="#par-mani" data-lv="Par mani" data-en="About Me">Par mani</a>
           <a href="#biografija" data-lv="Biogrāfija" data-en="Biography">Biogrāfija</a>
           <a href="#saites" data-lv="Seko man" data-en="Follow Me">Kontakti</a>
         </nav>
-
-        <!-- Tumšā režīma pārslēgšana un valodas maiņa -->
         <div class="controls">
-          <button onclick="toggleTheme()">🌗</button> <!-- Tumšā/gaišā režīma poga -->
-          <select onchange="changeLanguage(this.value)"> <!-- Valodas izvēle -->
+          <button onclick="toggleTheme()" aria-label="Toggle dark mode">🌗</button>
+          <select onchange="changeLanguage(this.value)">
             <option value="lv">LV</option>
             <option value="en">EN</option>
           </select>
@@ -58,32 +60,22 @@
       </div>
     </header>
 
-    <!-- Galvenais lapas saturs -->
     <main>
       <div class="container">
-        <!-- Par mani sekcija -->
         <section id="par-mani">
           <h2 data-lv="Par mani" data-en="About Me">Par mani</h2>
-          <p
-            data-lv="Sveiki! Esmu P1-2 audzēknis, kurš mācās sistēmu programmēšanu un interesējas par tīmekļa izstrādi un dizainu."
-            data-en="Hello! I'm a P1-2 student studying system programming and interested in web development."
-          >
-            Sveiki! Esmu P1-2 audzēknis, kurš mācās sistēmu programmēšanu un interesējas par tīmekļa izstrādi un dizainu.
+          <p data-lv="Sveiki! Esmu P1-2 audzēknis, kurš mācās sistēmu programmēšanu un interesējas par tīmeka izstrādi un dizainu." data-en="Hello! I'm a P1-2 student studying system programming and interested in web development.">
+            Sveiki! Esmu P1-2 audzēknis, kurš mācās sistēmu programmēšanu un interesējas par tīmeka izstrādi un dizainu.
           </p>
         </section>
 
-        <!-- Biogrāfijas sekcija ar valodas maiņu -->
         <section id="biografija">
           <h2 data-lv="Biogrāfija" data-en="Biography">Biogrāfija</h2>
-
-          <!-- Latviešu valodas teksts -->
           <div class="lang lv active">
             <p>Mani sauc Artis Čaunāns. Esmu dzimis 2007. gadā, Ogrē, un pašlaik mācos Rīgas Tehniskajā koledžā par programmēšanas tehniķi.</p>
             <p>Esmu ieinteresēts spēļu izstrādē un digitālajā dizainā. Brīvajā laikā nodarbojos ar spēļu izstrādi, kā arī cenšos attīstīt savas prasmes modelēšanā.</p>
             <p>Nākotnē neesmu pārliecināts, ka saistīšu savu dzīvi pilnībā ar programmēšanu, bet vēlos izveidot savu spēli.</p>
           </div>
-
-          <!-- Angļu valodas teksts -->
           <div class="lang en">
             <p>My name is Artis Čaunāns. I was born in 2007 in Ogre and currently study at Riga Technical College as a programming technician.</p>
             <p>I am interested in game development and digital design. In my free time, I work on games and try to improve my 3D modeling skills.</p>
@@ -91,20 +83,20 @@
           </div>
         </section>
 
-        <!-- Sociālo tīklu ikonas -->
         <section id="saites">
           <h2 data-lv="Seko man" data-en="Follow Me">Seko man</h2>
           <p>
-            <!-- GitHub profils -->
-            <a href="https://github.com/ArtusCaunanus" target="_blank"><i class="fab fa-github fa-2x"></i></a>
-            <!-- Instagram profils -->
-            <a href="https://www.instagram.com/stur1t1s" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+            <a href="https://github.com/ArtusCaunanus" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github fa-2x"></i>
+            </a>
+            <a href="https://www.instagram.com/stur1t1s" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram fa-2x"></i>
+            </a>
           </p>
         </section>
       </div>
     </main>
 
-    <!-- Kājene ar gadu un skatījumu skaitītāju -->
     <footer>
       <div class="container">
         <p>
